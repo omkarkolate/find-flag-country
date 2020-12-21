@@ -36,7 +36,7 @@ export default function App() {
         placeholder="Enter Emoji of flag"
         value={input}
       />
-      <h2>{input}</h2>
+      <h2 className="flag-size">{input}</h2>
       <h2>{country}</h2>
 
       {flags.map((flag, index) => (
