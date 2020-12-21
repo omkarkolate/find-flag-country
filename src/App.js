@@ -1,12 +1,6 @@
 import React, { useState } from "react";
+import { flagDb } from "./FlagDatabase";
 import "./styles.css";
-
-const flagDb = {
-  "🇦🇨": "Ascension Island",
-  "🇦🇪": "United Arab Emirates",
-  "🇦🇷": "Argentina",
-  "🇮🇳": "India"
-};
 
 const flags = Object.keys(flagDb);
 
@@ -14,8 +8,10 @@ export default function App() {
   const [input, setInput] = useState("");
   const [country, setCountry] = useState("Country name will appear here");
 
+  // console.log(flagDb);
+
   function handleChange(event) {
-    console.log("changed", event.target.value);
+    // console.log("changed", event.target.value);
     const inputFlag = event.target.value;
     setInput(inputFlag);
 
@@ -27,6 +23,7 @@ export default function App() {
   }
 
   function flagClickHandler(inputFlag) {
+    setInput(inputFlag);
     setCountry(flagDb[inputFlag]);
   }
 
@@ -37,6 +34,7 @@ export default function App() {
         type="text"
         onChange={handleChange}
         placeholder="Enter Emoji of flag"
+        value={input}
       />
       <h2>{input}</h2>
       <h2>{country}</h2>
